@@ -122,54 +122,1336 @@
 <script>
 const ROOT='assets/';
 const sections=[
- {id:'projects',ko:'프로젝트',en:'PROJECTS',icon:'folder',intro:'데이터와 AI로 문제를 해결하고,\n사람들이 실제로 사용할 수 있는 서비스를 만드는 과정을 좋아합니다.',filters:[['all','전체 프로젝트','folder'],['ai','AI / LLM','robot'],['data','데이터 분석','chart'],['dev','서비스 개발','monitor'],['plan','기획 / 디자인','palette'],['research','학술 / 연구','paper'],['award','공모전 / 대회','trophy']]},
- {id:'experience',ko:'경험',en:'EXPERIENCE',icon:'experience',intro:'직접 맡은 업무와 문제 해결 과정을 기록했습니다.',filters:[['all','전체 경험','folder'],['work','실무 경험','laptop'],['activity','대외활동','trophy'],['mentoring','교육 / 멘토링','paper']]},
- {id:'awards',ko:'수상 활동',en:'AWARD & ACTIVITIES',icon:'trophy',intro:'문제를 정의하고 끝까지 결과물을 완성해 얻은 기록입니다.',filters:[['all','전체 기록','folder'],['award','수상','trophy'],['activity','활동','experience']]},
- {id:'skills',ko:'기술 스택',en:'SKILLS',icon:'laptop',intro:'프로젝트에서 실제로 사용한 기술과 적용 경험을 정리했습니다.',filters:[['all','전체 기술','folder'],['ai','AI / LLM','robot'],['data','데이터 분석','chart'],['dev','개발 / 인프라','monitor']]},
- {id:'education',ko:'학업',en:'EDUCATION',icon:'notes',intro:'전공에서 배운 기초부터 실무에 적용한 내용까지.',filters:[['all','전체','folder'],['school','학업','paper'],['cert','자격 / 어학','notes']]},
- {id:'contact',ko:'연락하기',en:'CONTACT',icon:'mail',intro:'함께 문제를 해결할 기회를 기다리고 있습니다.',filters:[['all','연락처','mail']]}
+ {
+  "id": "projects",
+  "ko": "프로젝트",
+  "en": "PROJECTS",
+  "icon": "folder",
+  "intro": "데이터와 AI로 문제를 해결하고,\n기준을 세우고 단계를 나눠 검증하는 과정을 기록합니다.",
+  "filters": [
+   [
+    "all",
+    "전체 프로젝트",
+    "folder"
+   ],
+   [
+    "ai",
+    "AI / LLM",
+    "robot"
+   ],
+   [
+    "data",
+    "데이터 분석",
+    "chart"
+   ],
+   [
+    "dev",
+    "서비스 개발",
+    "monitor"
+   ],
+   [
+    "plan",
+    "기획 / 디자인",
+    "palette"
+   ],
+   [
+    "research",
+    "학술 / 연구",
+    "paper"
+   ],
+   [
+    "award",
+    "공모전 / 대회",
+    "trophy"
+   ]
+  ]
+ },
+ {
+  "id": "experience",
+  "ko": "경험",
+  "en": "EXPERIENCE",
+  "icon": "experience",
+  "intro": "기준을 먼저 맞추고, 문제가 생기면 범위를 나눠 원인을 찾아 고치는\n데이터·AI 실무자 신예린입니다.",
+  "filters": [
+   [
+    "all",
+    "전체 경험",
+    "folder"
+   ],
+   [
+    "about",
+    "소개 / 일하는 방식",
+    "experience"
+   ],
+   [
+    "work",
+    "실무 경험",
+    "laptop"
+   ],
+   [
+    "activity",
+    "대외활동",
+    "trophy"
+   ],
+   [
+    "mentoring",
+    "교육 / 멘토링",
+    "paper"
+   ]
+  ]
+ },
+ {
+  "id": "awards",
+  "ko": "수상 활동",
+  "en": "AWARD & ACTIVITIES",
+  "icon": "trophy",
+  "intro": "문제를 정의하고 끝까지 결과물을 완성해 얻은 기록입니다.",
+  "filters": [
+   [
+    "all",
+    "전체 기록",
+    "folder"
+   ],
+   [
+    "award",
+    "수상",
+    "trophy"
+   ],
+   [
+    "activity",
+    "선정 / 활동",
+    "experience"
+   ]
+  ]
+ },
+ {
+  "id": "skills",
+  "ko": "기술 스택",
+  "en": "SKILLS",
+  "icon": "laptop",
+  "intro": "프로젝트에 적용한 기술과 수업·부트캠프에서 학습한 기술을 함께 정리했습니다.",
+  "filters": [
+   [
+    "all",
+    "전체 기술",
+    "folder"
+   ],
+   [
+    "ai",
+    "AI / LLM",
+    "robot"
+   ],
+   [
+    "data",
+    "데이터 분석",
+    "chart"
+   ],
+   [
+    "dev",
+    "개발 / 인프라",
+    "monitor"
+   ],
+   [
+    "tools",
+    "분석 / 콘텐츠 도구",
+    "palette"
+   ]
+  ]
+ },
+ {
+  "id": "education",
+  "ko": "학업",
+  "en": "EDUCATION",
+  "icon": "notes",
+  "intro": "전공에서 배운 기초부터 실무에 적용한 내용까지.",
+  "filters": [
+   [
+    "all",
+    "전체",
+    "folder"
+   ],
+   [
+    "school",
+    "학업",
+    "paper"
+   ],
+   [
+    "cert",
+    "자격 / 어학",
+    "notes"
+   ],
+   [
+    "research",
+    "학술 발표",
+    "paper"
+   ]
+  ]
+ },
+ {
+  "id": "contact",
+  "ko": "연락하기",
+  "en": "CONTACT",
+  "icon": "mail",
+  "intro": "함께 문제를 해결할 기회를 기다리고 있습니다.",
+  "filters": [
+   [
+    "all",
+    "연락처",
+    "mail"
+   ]
+  ]
+ }
 ];
 const records={
- projects:[
- {id:'rag',title:'RAG 기반 교육기관 AI 챗봇',type:'ai',tag:'AI / LLM',summary:'강의자료 기반 한국어·일본어 질의응답 챗봇',image:'thumb-rag.png',detailImage:'detail-rag.png',date:'2026.02 – 2026.08',affiliation:'틸론 프론티어연구소 (계약직)',tags:['RAG','FastAPI','Ollama','ChromaDB','Docker','Python'],description:'교육기관 강의자료를 바탕으로 한국어·일본어 질문에 답하는 내부용 AI 챗봇을 개발했습니다. 3인 팀 프로젝트에서 자료 인덱싱과 관련 문맥 추출 설계, 실행 환경 구성 및 오류 검증을 담당했습니다.',tasks:['강의자료 인덱싱과 질문 관련 문맥 추출 설계','FastAPI·Ollama·ChromaDB·Docker 기반 실행 환경 구성','질문 재현 후 검색 근거 확인, 검색 오류와 답변 생성 오류 분리','한국어·일본어 QA 검증과 교육기관 시연 참여'],icon:'robot'},
- {id:'route',title:'혼잡도 예측 및 경로 탐색',type:'data',tag:'데이터 분석',summary:'XGBoost 기반 혼잡도 예측과 최적 경로 추천',image:'thumb-route.png',date:'2025',affiliation:'프로젝트 / 학술 발표',tags:['Python','XGBoost','Dijkstra','BFS'],description:'고령자의 지하철 이동을 돕기 위해 혼잡도를 예측하고, 예측 결과를 경로 탐색과 결합한 프로젝트입니다.',tasks:['혼잡도 예측 모델 학습 및 성능 확인','Dijkstra·BFS 기반 경로 탐색 기능 구성','고령자의 이동 편의를 고려한 경로 추천 시나리오 설계'],icon:'chart'},
- {id:'vdi',title:'VDI 프로비저닝 장애 분석',type:'dev',tag:'인프라 / 시스템',summary:'80% 지점에서 멈추던 프로비저닝을 정상 완료로 개선',image:'thumb-vdi.png',date:'2026',affiliation:'틸론 프론티어연구소',tags:['C#','WPF','PowerShell','Active Directory','VDI'],description:'프로비저닝 과정이 80%에서 중단되던 문제를 추적하고 정상 완료를 확인했습니다.',tasks:['VDI 프로비저닝 과정에서 오류가 발생하는 지점 추적','관련 설정과 동작 흐름 분석 및 수정','정상 프로비저닝 100% 완료 확인'],icon:'monitor'},
- {id:'lecture',title:'Lecture AI 핵심 구간 추출',type:'ai',tag:'AI / LLM',summary:'강의 전사와 청크 기반 핵심 구간 분석',date:'2026',affiliation:'AI 프로젝트',tags:['WhisperX','GPT-4o-mini','Python'],description:'강의 음성을 텍스트로 전사한 뒤 청크 단위로 평가하여 핵심 구간, 타임스탬프, 태그와 요약을 추출했습니다.',tasks:['WhisperX 기반 음성 전사','전사 청크 분석 및 핵심 구간 평가','핵심 구간의 태그·요약·타임스탬프 출력'],icon:'robot'},
- {id:'ksa',title:'교육 설문 집계 자동화',type:'data',tag:'데이터 분석',summary:'서로 다른 CSV 문항 통합과 누락·중복 검증 자동화',date:'2025.07 – 2025.08',affiliation:'한국표준협회',tags:['Python','pandas','Google Colab','CSV'],description:'교육 만족도 설문 데이터를 반복해서 수작업 집계하던 업무를 Python으로 정리했습니다. 회차별 설문 문항 구조가 달라 통합 기준을 마련했습니다.',tasks:['설문별 상이한 문항명과 컬럼을 공통 기준으로 변환','누락·중복 데이터를 검증하는 처리 로직 구성','만족도와 강사평가 집계 자동화'],icon:'chart'},
- {id:'tutor',title:'전공 맞춤 코딩 튜터 AI',type:'dev',tag:'서비스 개발',summary:'학습자를 위한 맞춤형 코딩 튜터 서비스',date:'2025',affiliation:'캡스톤디자인 (동상)',tags:['AI','교육 서비스','팀 프로젝트'],description:'전공 학습자의 코딩 학습을 지원하는 AI 튜터 서비스를 제작한 캡스톤 프로젝트입니다.',tasks:['학습자 관점의 서비스 문제 정의','AI 튜터 기능 구상 및 팀 결과물 제작','캡스톤디자인 동상 수상'],icon:'monitor'},
- {id:'fact',title:'FACT-K 허위정보 대응 플랫폼',type:'award',tag:'공모전 / 대회',summary:'허위정보 대응을 위한 서비스 플랫폼',date:'2024',affiliation:'팀 프로젝트 (최우수상)',tags:['서비스 기획','AI','팀 프로젝트'],description:'허위정보 대응을 목표로 하는 플랫폼 프로젝트입니다. 2인 팀으로 수행해 최우수상을 수상했습니다.',tasks:['문제 정의 및 서비스 아이디어 구체화','팀 협업을 통한 플랫폼 프로젝트 수행','최우수상 수상'],icon:'trophy'},
- {id:'kt',title:'KT 팬 데이터 기반 마케팅 기획',type:'plan',tag:'기획 / 디자인',summary:'티켓·구매회원·쿠폰 데이터를 활용한 마케팅 아이디어',date:'2026',affiliation:'KT wiz 퓨처스마케터',tags:['데이터 기획','AI 활용','마케팅'],description:'제공 가능한 회원 구성, 티켓 예매 점유율, 쿠폰 사용률 데이터를 바탕으로 팬 경험 개선과 마케팅 실무 지원 프로젝트를 기획하고 있습니다. 현재 진행 중인 기획입니다.',tasks:['활용 가능한 데이터 항목과 분석 가능 범위 정의','티켓 구매 패턴과 쿠폰 혜택 연결 방안 검토','데이터 기반 마케팅 지원 AI 아이디어 기획'],icon:'palette'},
- {id:'paper',title:'고령자 지하철 경로 추천 연구',type:'research',tag:'학술 / 연구',summary:'예측 모델과 경로 추천의 활용 가능성 발표',date:'2025',affiliation:'학술대회 발표',tags:['데이터 분석','연구','경로 탐색'],description:'고령자의 이동 편의에 관한 경로 추천 연구 결과를 학술대회에서 발표했습니다.',tasks:['고령자 이동 문제와 추천 서비스 필요성 조사','혼잡도 예측 및 경로 탐색 결과 분석','연구 내용 발표'],icon:'paper'}
+ "projects": [
+  {
+   "id": "rag",
+   "title": "강의자료 기반 RAG 사내 챗봇",
+   "type": "ai",
+   "tag": "AI / LLM",
+   "summary": "강의자료 검색과 한국어·일본어 질의응답",
+   "description": "강의자료에서 질문과 관련된 근거를 찾아 한국어·일본어로 답하는 챗봇을 개발했습니다.",
+   "tasks": [
+    "강의 콘텐츠 임베딩·인덱싱 및 ChromaDB 저장",
+    "유사 문맥 검색과 LLM 응답 생성",
+    "한국어·일본어 질문으로 정확성과 문맥 유지 검증",
+    "오답을 검색 단계와 생성 단계로 분리",
+    "웹 검색 / 내 자료(RAG) 출처 선택 토글 구현"
+   ],
+   "tags": [
+    "Python",
+    "FastAPI",
+    "Ollama",
+    "ChromaDB",
+    "Docker",
+    "Embedding",
+    "LLM"
+   ],
+   "date": "2026",
+   "affiliation": "틸론 프론티어연구소 · 3인 팀",
+   "icon": "robot",
+   "image": "thumb-rag.png",
+   "detailImage": "detail-rag.png"
+  },
+  {
+   "id": "route",
+   "title": "고령자 혼잡도 기반 지하철 경로 추천",
+   "type": "data",
+   "tag": "데이터 분석",
+   "summary": "XGBoost 혼잡도 예측과 가중 경로 탐색",
+   "description": "최소 정거장 수만으로는 혼잡 구간을 피하기 어려워 고령자의 이동 부담을 고려한 경로를 연구했습니다.",
+   "tasks": [
+    "역·시간대·요일·호선별 혼잡도 전처리",
+    "Linear Regression과 XGBoost 비교",
+    "예측 혼잡도와 환승 부담을 비용으로 반영한 Dijkstra 탐색",
+    "가중치 없는 BFS 결과와 비교"
+   ],
+   "tags": [
+    "Python",
+    "XGBoost",
+    "Linear Regression",
+    "Dijkstra",
+    "BFS"
+   ],
+   "date": "2025",
+   "affiliation": "학부 2인 팀",
+   "icon": "chart",
+   "image": "thumb-route.png"
+  },
+  {
+   "id": "vdi",
+   "title": "VDI 2-Node 이중화 QA·장애 분석",
+   "type": "dev",
+   "tag": "인프라 / 시스템",
+   "summary": "약 80%에서 정지하던 프로비저닝 원인 추적",
+   "description": "Dstation V9 보안인증 QA 중 프로비저닝이 약 80%에서 멈추는 장애를 분석했습니다.",
+   "tasks": [
+    "6대 서버의 AD·관리 서버·Hyper-V 호스트 점검",
+    "iSCSI 공유 스토리지와 Failover Cluster 점검",
+    "로그·설정값 대조로 원인 범위 축소",
+    "설정 수정 후 반복 테스트",
+    "소유 노드 전환 시 대표 IP·공유 경로 유지 확인"
+   ],
+   "tags": [
+    "Active Directory",
+    "Hyper-V",
+    "iSCSI",
+    "Failover Cluster",
+    "MariaDB",
+    "Windows Server",
+    "PowerShell"
+   ],
+   "date": "2026",
+   "affiliation": "틸론 · Dstation V9",
+   "icon": "monitor",
+   "image": "thumb-vdi.png"
+  },
+  {
+   "id": "ksa",
+   "title": "교육 만족도·강사평가 자동 집계",
+   "type": "data",
+   "tag": "데이터 분석",
+   "summary": "기준 통일 → 자동 집계 → Excel 대조 → 재사용",
+   "description": "과정마다 다른 Google Forms 문항과 응답을 같은 평가 기준에서 비교할 수 있도록 정리했습니다.",
+   "tasks": [
+    "과정별 Google Forms CSV 추출",
+    "강사 이름·문항 맥락·응답 날짜로 문항 매핑",
+    "Python·pandas 자동 집계",
+    "오류 발생 시 CSV를 세부 단위로 나눠 검증",
+    "기존 Excel 수기 결과와 대조",
+    "다른 교육 과정에 재사용"
+   ],
+   "tags": [
+    "Python",
+    "pandas",
+    "Google Colab",
+    "Google Forms",
+    "Excel"
+   ],
+   "date": "2025.07.01 – 2025.08.29",
+   "affiliation": "한국표준협회 경영HR센터",
+   "icon": "chart"
+  },
+  {
+   "id": "lecture",
+   "title": "Lecture AI · 강의 핵심 구간 추출",
+   "type": "ai",
+   "tag": "AI / LLM",
+   "summary": "타임스탬프·태그·요약을 담은 리포트 프로토타입",
+   "description": "긴 강의 영상에서 중요한 내용을 다시 찾기 어려운 문제를 다뤘습니다.",
+   "tasks": [
+    "WhisperX 음성 전사",
+    "청크 분할",
+    "GPT-4o-mini 구간별 중요도 분석",
+    "핵심 타임스탬프·태그·요약 추출",
+    "Markdown 리포트 생성"
+   ],
+   "tags": [
+    "Python",
+    "WhisperX",
+    "GPT-4o-mini"
+   ],
+   "date": "2026",
+   "affiliation": "틸론 프론티어연구소",
+   "icon": "robot"
+  },
+  {
+   "id": "aws",
+   "title": "AWS RDS 부하 테스트·지표 관측",
+   "type": "dev",
+   "tag": "클라우드 / 실습",
+   "summary": "JMeter 부하 조건과 CloudWatch 지표 비교",
+   "description": "부하를 증가시키며 RDS MySQL 지표 변화를 관측하는 부트캠프 실습입니다.",
+   "tasks": [
+    "VPC·서브넷·IGW·라우팅·보안그룹 구성",
+    "EC2 Amazon Linux 2 Apache 페이지 배포",
+    "RDS MySQL JDBC 연결(커넥션 10)",
+    "10 Threads·Ramp-up 30초·Loop 2로 INSERT 확인",
+    "300 Threads·Ramp-up 100초·Loop 1로 부하 증가",
+    "CPUUtilization·FreeableMemory·Latency·IOPS·DatabaseConnections 관측"
+   ],
+   "tags": [
+    "AWS VPC",
+    "EC2",
+    "RDS",
+    "CloudWatch",
+    "JMeter"
+   ],
+   "date": "2026.05 – 2026.06",
+   "affiliation": "코멘토 IT 직무 부트캠프",
+   "icon": "monitor"
+  },
+  {
+   "id": "tutor",
+   "title": "GPT 전공 맞춤형 코드 피드백 튜터",
+   "type": "ai",
+   "tag": "AI / 교육",
+   "summary": "코드 오류·조건 누락과 반복 실수 피드백",
+   "description": "데이터시각화 수업의 문제·정답 조건을 바탕으로 학습자의 코드 피드백을 설계했습니다.",
+   "tasks": [
+    "코드 오류와 조건 누락 판별",
+    "수정 코드 안내",
+    "오류 이력 기반 반복 실수 추적",
+    "유사 문제 생성 설계"
+   ],
+   "tags": [
+    "GPT",
+    "프롬프트 설계"
+   ],
+   "date": "2025.07",
+   "affiliation": "캡스톤디자인",
+   "icon": "robot"
+  },
+  {
+   "id": "fact",
+   "title": "FACT-K / Literacy-K 플랫폼 기획",
+   "type": "award",
+   "tag": "공모전 / 대회",
+   "summary": "생애주기별 허위정보 대응 교육·진단 플랫폼",
+   "description": "허위정보 사례와 청소년·고령층의 취약성을 분석한 2인 팀 기획 프로젝트입니다.",
+   "tasks": [
+    "허위정보 사례 및 국내외 정책·교육 비교",
+    "어린이 중심·고령층 우선 의견 조정",
+    "생애주기별 리터러시 접근 도출",
+    "퀴즈·딥페이크 탐지·취약 유형 리포트·연령별 UI/UX 기획"
+   ],
+   "tags": [
+    "서비스 기획",
+    "리터러시",
+    "UI/UX"
+   ],
+   "date": "2024.12.19",
+   "affiliation": "KAIST 공모전 · 2인 팀",
+   "icon": "trophy"
+  },
+  {
+   "id": "wizcovery",
+   "title": "WIZCOVERY · KT wiz 굿즈 탐색 기획",
+   "type": "plan",
+   "tag": "기획 / 디자인",
+   "summary": "검색·재고·위치·대기시간·대체상품을 한 화면에",
+   "description": "팀스토어 상품 검색과 재고·위치·대기시간 정보의 비가시성 문제를 다룹니다.",
+   "tasks": [
+    "굿즈 검색",
+    "재고 확인",
+    "진열 위치 안내",
+    "대기시간 확인",
+    "품절 시 대안 추천",
+    "RFID 셀프 체크아웃 등 제약 검토",
+    "KPI·POC·단계별 확장 계획 구성"
+   ],
+   "tags": [
+    "서비스 기획",
+    "HTML",
+    "AI 상품 검색",
+    "KPI",
+    "POC"
+   ],
+   "date": "2026 – 현재",
+   "affiliation": "KT wiz 퓨처스마케터 5기 · 리테일 분과",
+   "icon": "palette"
+  },
+  {
+   "id": "vip",
+   "title": "V-IP · 프로배구 선수 IP 창업 아이디어",
+   "type": "plan",
+   "tag": "기획 / 디자인",
+   "summary": "팬 맞춤 캐릭터·굿즈와 좌석 추천 아이디어",
+   "description": "프로배구 선수 IP를 팬 맞춤형 상품과 서비스로 연결하는 창업 아이디어입니다.",
+   "tasks": [
+    "김지한 선수 굿즈 기획·제작",
+    "임성진 선수·KB손해보험 스타즈 확장 구상",
+    "좌석 추천 서비스 및 수익 모델 설계"
+   ],
+   "tags": [
+    "창업 기획",
+    "선수 IP",
+    "굿즈",
+    "수익 모델"
+   ],
+   "date": "2026.01.15",
+   "affiliation": "동덕여대 창업지원단",
+   "icon": "palette"
+  },
+  {
+   "id": "creative",
+   "title": "생성형 AI 브랜드·홍보 콘텐츠",
+   "type": "plan",
+   "tag": "기획 / 디자인",
+   "summary": "프롬프트 반복 조정과 메시지 일관성 검토",
+   "description": "대학 브랜드 이미지와 평생교육 홍보 콘텐츠를 생성형 AI로 기획·제작했습니다.",
+   "tasks": [
+    "Midjourney 프롬프트·네거티브 프롬프트·가중치 반복 조정",
+    "Canva 스토리라인·시각 요소 구성",
+    "장면별 메시지 일관성 검토"
+   ],
+   "tags": [
+    "Midjourney",
+    "Canva",
+    "프롬프트 설계"
+   ],
+   "date": "2023.12 / 2026.05",
+   "affiliation": "콘텐츠 공모전",
+   "icon": "palette"
+  },
+  {
+   "id": "sw-project",
+   "title": "기후·에너지 청소년 SW 동행",
+   "type": "dev",
+   "tag": "SW 교육",
+   "summary": "전력 데이터 분석과 맞춤형 절전 앱 학습 지원",
+   "description": "학생이 데이터와 앱 결과를 직접 확인하며 기후·에너지 문제를 이해하도록 지원했습니다.",
+   "tasks": [
+    "지역별 전력 사용 데이터 Python 분석·지도 시각화",
+    "지역·주거 형태·사용량 기반 App Inventor 절전 앱 설계 지도",
+    "코블록스 센서·자전거 발전 장치 TV 연동 실습",
+    "쉬는 시간 개별 학습 지원"
+   ],
+   "tags": [
+    "Python",
+    "Google Colab",
+    "App Inventor",
+    "블록코딩"
+   ],
+   "date": "2024.08 – 2024.10",
+   "affiliation": "한국과학창의재단",
+   "icon": "laptop"
+  },
+  {
+   "id": "paper",
+   "title": "고령자 지하철 경로 추천 연구 발표",
+   "type": "research",
+   "tag": "학술 / 연구",
+   "summary": "혼잡도 예측과 경로 비교 연구 공유",
+   "description": "고령자의 이동 부담을 고려한 예측·추천 연구 결과를 발표했습니다.",
+   "tasks": [
+    "혼잡도 데이터 전처리",
+    "예측 모델 비교",
+    "Dijkstra·BFS 경로 결과 비교",
+    "추계학술대회 발표"
+   ],
+   "tags": [
+    "데이터 분석",
+    "XGBoost",
+    "경로 탐색",
+    "연구"
+   ],
+   "date": "2025",
+   "affiliation": "학부 연구",
+   "icon": "paper"
+  },
+  {
+   "id": "more",
+   "title": "작은 프로젝트·개발 실습 모음",
+   "type": "research",
+   "tag": "실습 / 기록",
+   "summary": "분류 모델·pandas·시각화·웹 개발 학습",
+   "description": "데이터 분석과 개발 학습에서 진행한 실습 기록입니다.",
+   "tasks": [
+    "쌀 원산지 분류 SVM 실습",
+    "Titanic pandas 분석·월별 평균 집계·국가별 salary 시각화",
+    "AI 작곡·보컬 기술 분석 공동 문서",
+    "블록체인 구조 로고·캐릭터 시각화",
+    "교내 색조 화장품 브랜드 기획안",
+    "Oracle 11g XE·Java/JSP/Servlet·Tomcat·JDBC 실기 연습"
+   ],
+   "tags": [
+    "SVM",
+    "pandas",
+    "Oracle",
+    "Java",
+    "JSP",
+    "Servlet",
+    "Tomcat",
+    "JDBC"
+   ],
+   "date": "",
+   "affiliation": "학습 기록",
+   "icon": "notes"
+  }
  ],
- experience:[
- {id:'tilon',title:'틸론 프론티어연구소',type:'work',tag:'실무 경험',summary:'RAG 챗봇·VDI 시스템 개발 및 기술 기획',date:'2026.02 – 2026.08',affiliation:'계약직',tags:['RAG','Docker','C#','WPF','기술 기획'],description:'개발과 기획 업무를 수행하며 생성형 AI 챗봇 및 VDI 관련 프로젝트를 진행했습니다.',tasks:['강의자료 기반 RAG 챗봇 설계와 질의응답 테스트','VDI 프로비저닝 장애 원인 추적과 개선','교육기관 시연 및 제품 관련 문서 작업'],icon:'laptop'},
- {id:'ksa-exp',title:'한국표준협회 경영HR센터',type:'work',tag:'실무 경험',summary:'교육 운영·문의 응대·설문 집계 자동화',date:'2025.07 – 2025.08',affiliation:'국가근로',tags:['Python','pandas','교육 운영'],description:'교육 현장 운영과 설문 관리를 담당하고 반복 집계 업무를 자동화했습니다.',tasks:['교육 운영 및 수강생 문의 대응','설문 데이터 취합과 누락·중복 확인','Python 기반 만족도 집계 자동화'],icon:'chart'},
- {id:'mentor',title:'서울런 멘토',type:'mentoring',tag:'교육 / 멘토링',summary:'학습 지원 및 멘토링 활동',date:'2023 – 2024',affiliation:'서울런',tags:['멘토링','교육'],description:'학습자를 위한 멘토링을 수행했습니다.',tasks:['학습자의 학습 활동 지원','멘토링 활동 진행'],icon:'paper'},
- {id:'kt-exp',title:'KT wiz 대학생 마케터',type:'activity',tag:'대외활동',summary:'팬 데이터와 마케팅 프로젝트 기획 활동',date:'2026',affiliation:'퓨처스마케터 5기',tags:['마케팅','데이터 기획'],description:'스포츠 팬 경험 향상을 위한 아이디어와 데이터 활용 프로젝트를 진행하고 있습니다.',tasks:['제공 데이터 기반 마케팅 아이디어 구상','프로젝트 주제 및 분석 방법 논의'],icon:'trophy'},
- {id:'sw',title:'청소년 SW 동행',type:'mentoring',tag:'교육 / 멘토링',summary:'청소년 소프트웨어 학습 지원',date:'2024',affiliation:'대외활동',tags:['SW 교육','멘토링'],description:'청소년 대상 소프트웨어 교육 활동에 참여했습니다.',tasks:['SW 교육 및 학습 지원'],icon:'paper'}
+ "experience": [
+  {
+   "id": "about",
+   "title": "신예린 · Data & AI",
+   "type": "about",
+   "tag": "소개",
+   "summary": "기준을 맞추고, 원인을 나누고, 결과를 보이게",
+   "description": "기준을 먼저 맞추고, 문제가 생기면 범위를 나눠 원인을 찾아 고치는 데이터·AI 실무자 신예린입니다.",
+   "tasks": [
+    "기준부터 맞추기: 설문을 강사·문항 맥락·응답 날짜로 정리하고, AI 진단 조건으로 학습자 수준 구분",
+    "쪼개서 원인 찾기: CSV를 나눠 검증하고 RAG 검색·생성 오류 및 VDI 로그·설정값을 분리해 점검",
+    "결과를 보이게 전달하기: Colab 출력·App Inventor 디자인·수준별 설명으로 학습 지원"
+   ],
+   "tags": [
+    "데이터 분석",
+    "AI 개발",
+    "MLOps",
+    "IT 기획"
+   ],
+   "date": "",
+   "affiliation": "",
+   "icon": "experience"
+  },
+  {
+   "id": "tilon",
+   "title": "틸론 프론티어연구소",
+   "type": "work",
+   "tag": "실무 경험",
+   "summary": "RAG·Lecture AI·Dstation V9 QA",
+   "description": "RAG 챗봇의 오답을 검색과 생성 단계로 나눠 살펴보고, 웹 검색과 내 자료 검색의 출처 선택 기능을 구현했습니다.",
+   "tasks": [
+    "콘텐츠 인덱싱·질의 관련 문맥 추출 설계·구현",
+    "한국어·일본어 답변 검증과 오류 유형 분리",
+    "Docker 실행환경 구성 및 Lecture AI 후속 프로토타입",
+    "2-Node 이중화 QA, 약 80% 프로비저닝 정지 장애 추적·재검증"
+   ],
+   "tags": [
+    "Python",
+    "RAG",
+    "Docker",
+    "VDI",
+    "QA"
+   ],
+   "date": "2026",
+   "affiliation": "틸론 프론티어연구소",
+   "icon": "laptop"
+  },
+  {
+   "id": "ksa-exp",
+   "title": "한국표준협회 경영HR센터",
+   "type": "work",
+   "tag": "실무 경험",
+   "summary": "교육 설문 표준화·집계 자동화",
+   "description": "교육과정마다 다른 문항을 공통 기준으로 묶고 Python·pandas 집계 결과를 기존 Excel 수기 결과와 대조했습니다.",
+   "tasks": [
+    "문항 분류·CSV 분할 검증·집계 로직 작성",
+    "다른 교육 과정에 같은 처리 흐름 재사용",
+    "담당자로부터 반복 업무가 편해졌다는 피드백",
+    "교육 운영·응대·설문 관리 병행"
+   ],
+   "tags": [
+    "Python",
+    "pandas",
+    "Colab",
+    "Excel"
+   ],
+   "date": "2025.07.01 – 2025.08.29",
+   "affiliation": "한국표준협회 · 국가근로",
+   "icon": "chart"
+  },
+  {
+   "id": "ksa-2026",
+   "title": "한국표준협회 교육 운영 단기 업무",
+   "type": "work",
+   "tag": "실무 경험",
+   "summary": "출결·만족도 데이터와 결과보고서 정리",
+   "description": "2025년 국가근로 자동화 프로젝트와 별도로 수행한 교육 현장 운영 업무입니다.",
+   "tasks": [
+    "출결 자료·사진 취합",
+    "만족도 데이터 정리",
+    "PPT 결과보고서의 표·출결 현황 구성",
+    "10년차 리프레시 교육 결과보고서 작업"
+   ],
+   "tags": [
+    "교육 운영",
+    "데이터 정리",
+    "PPT"
+   ],
+   "date": "2026.10 시작",
+   "affiliation": "한국표준협회",
+   "icon": "paper"
+  },
+  {
+   "id": "kt-exp",
+   "title": "KT wiz 퓨처스마케터 5기",
+   "type": "activity",
+   "tag": "대외활동",
+   "summary": "리테일 분과 · WIZCOVERY 기획",
+   "description": "팬 경험을 개선하는 굿즈 탐색 서비스와 데이터 활용 아이디어를 기획하고 있습니다.",
+   "tasks": [
+    "WIZCOVERY 웹·앱 프로토타입",
+    "팬·티켓·쿠폰 데이터 활용 아이디어 논의",
+    "재고·위치·대기시간·품절 대안 흐름 및 현실 제약 검토"
+   ],
+   "tags": [
+    "서비스 기획",
+    "HTML",
+    "마케팅"
+   ],
+   "date": "2026 – 현재",
+   "affiliation": "KT wiz · 리테일 분과",
+   "icon": "trophy"
+  },
+  {
+   "id": "comento",
+   "title": "코멘토 IT 8개 직무 체험 부트캠프",
+   "type": "activity",
+   "tag": "대외활동",
+   "summary": "AWS 구성·웹 서버 배포·DB 부하 실습",
+   "description": "클라우드 리소스 구성과 관측을 실습했습니다.",
+   "tasks": [
+    "VPC·EC2·RDS 구성",
+    "Apache 웹 서버 배포",
+    "JMeter JDBC 및 CloudWatch 부하 지표 관측"
+   ],
+   "tags": [
+    "AWS",
+    "JMeter",
+    "CloudWatch"
+   ],
+   "date": "2026.05 – 2026.06",
+   "affiliation": "코멘토",
+   "icon": "monitor"
+  },
+  {
+   "id": "peer",
+   "title": "또래코칭 학습공동체",
+   "type": "mentoring",
+   "tag": "교육 / 멘토링",
+   "summary": "또래 학습·대학생활 적응 지원",
+   "description": "또래 학습과 대학생활 적응을 지원하며 활동 영상을 공유했습니다.",
+   "tasks": [
+    "또래 학습·적응 지원",
+    "활동 영상 공유",
+    "우수팀 선정"
+   ],
+   "tags": [
+    "또래코칭",
+    "학습 지원"
+   ],
+   "date": "2025.09 – 2025.12",
+   "affiliation": "동덕여자대학교",
+   "icon": "paper"
+  },
+  {
+   "id": "social",
+   "title": "사회공헌 서포터즈",
+   "type": "activity",
+   "tag": "대외활동",
+   "summary": "카드뉴스·SNS 홍보 콘텐츠 기획·제작",
+   "description": "동덕여자대학교 사회봉사센터 사회공헌 활동 관련 콘텐츠를 제작했습니다.",
+   "tasks": [
+    "카드뉴스 기획·제작",
+    "SNS 홍보 콘텐츠 구성"
+   ],
+   "tags": [
+    "사회공헌",
+    "콘텐츠 기획"
+   ],
+   "date": "",
+   "affiliation": "동덕여자대학교 사회봉사센터",
+   "icon": "experience"
+  },
+  {
+   "id": "sw",
+   "title": "청소년 SW 동행·AI 교육",
+   "type": "mentoring",
+   "tag": "교육 / 멘토링",
+   "summary": "Python 전력 데이터 분석·절전 앱 지도",
+   "description": "학생이 출력 결과와 화면을 직접 확인하도록 설명하고 개별 학습을 지원했습니다.",
+   "tasks": [
+    "Python 지역별 전력 데이터 분석·지도 시각화",
+    "App Inventor 맞춤형 절전 앱 설계 지도",
+    "코블록스 센서·블록코딩 에너지 실습",
+    "쉬는 시간을 활용한 개별 지원"
+   ],
+   "tags": [
+    "Python",
+    "Colab",
+    "App Inventor"
+   ],
+   "date": "2024.08 – 2024.10",
+   "affiliation": "한국과학창의재단",
+   "icon": "laptop"
+  },
+  {
+   "id": "seoul-support",
+   "title": "서울런 멘토단 서포터즈",
+   "type": "activity",
+   "tag": "대외활동",
+   "summary": "운영 부문 · 생성형 AI 홍보 콘텐츠",
+   "description": "생성형 AI를 활용한 홍보 콘텐츠를 기획·제작했습니다.",
+   "tasks": [
+    "홍보 콘텐츠 기획·제작",
+    "팀 일정 조율·업무 분담"
+   ],
+   "tags": [
+    "생성형 AI",
+    "콘텐츠",
+    "협업"
+   ],
+   "date": "2024.01 – 2024.02",
+   "affiliation": "서울런",
+   "icon": "experience"
+  },
+  {
+   "id": "volunteer",
+   "title": "은평구 치매안심센터 봉사",
+   "type": "activity",
+   "tag": "봉사",
+   "summary": "치매체크 앱 검사 안내·지원",
+   "description": "앱을 활용하는 검사 절차를 안내하고 지원했습니다.",
+   "tasks": [
+    "치매체크 앱 검사 안내",
+    "검사 진행 지원",
+    "봉사 22시간"
+   ],
+   "tags": [
+    "봉사",
+    "디지털 지원"
+   ],
+   "date": "2024.01 – 2024.02",
+   "affiliation": "은평구 치매안심센터",
+   "icon": "heart"
+  },
+  {
+   "id": "mentor",
+   "title": "서울런 학습 멘토",
+   "type": "mentoring",
+   "tag": "교육 / 멘토링",
+   "summary": "AI 진단을 활용한 수준별 1:1 멘토링",
+   "description": "AI 학습 플랫폼 진단 결과에 필터링 조건을 적용해 학습자 수준에 맞게 멘토링했습니다.",
+   "tasks": [
+    "1:1 학습 멘토링",
+    "학습자 수준별 설명·지도",
+    "우수멘토 선정"
+   ],
+   "tags": [
+    "멘토링",
+    "AI 학습 진단"
+   ],
+   "date": "2023.04 – 2024.10",
+   "affiliation": "서울특별시 서울런",
+   "icon": "paper"
+  },
+  {
+   "id": "korean-mentor",
+   "title": "국어 멘토링·과외",
+   "type": "mentoring",
+   "tag": "교육 / 멘토링",
+   "summary": "수준별 설명과 문제 풀이 지도",
+   "description": "장위중학교 한 학기 국어 멘토링과 중·고등학생 국어 과외 경험이 있습니다.",
+   "tasks": [
+    "학습자 수준별 설명",
+    "국어 문제 풀이 지도",
+    "수년간의 교육 경험"
+   ],
+   "tags": [
+    "국어 교육",
+    "멘토링"
+   ],
+   "date": "",
+   "affiliation": "",
+   "icon": "paper"
+  }
  ],
- awards:[
- {id:'vip',title:'창업 아이디어 대상',type:'award',tag:'수상',summary:'V-IP 창업 아이디어',date:'2026.01',affiliation:'창업 아이디어 대회',tags:['창업','서비스 기획'],description:'V-IP 창업 아이디어로 대상을 수상했습니다.',tasks:['서비스 아이디어 기획 및 발표'],icon:'trophy'},
- {id:'edu-gold',title:'평생교육 홍보 콘텐츠 금상',type:'award',tag:'수상',summary:'평생교육 홍보 콘텐츠',date:'2026.05',affiliation:'공모전',tags:['콘텐츠 기획'],description:'평생교육 홍보 콘텐츠 관련 공모전에서 금상을 수상했습니다.',tasks:['콘텐츠 기획 및 결과물 제작'],icon:'trophy'},
- {id:'human',title:'인권대회 최우수상',type:'award',tag:'수상',summary:'인권 관련 아이디어 발표',date:'2025.12',affiliation:'대회',tags:['기획','발표'],description:'인권대회에서 최우수상을 수상했습니다.',tasks:['문제 정의 및 결과물 발표'],icon:'trophy'},
- {id:'capstone',title:'캡스톤디자인 동상',type:'award',tag:'수상',summary:'전공 맞춤 코딩 튜터 AI',date:'2025.07',affiliation:'캡스톤디자인',tags:['AI','교육'],description:'전공 맞춤 코딩 튜터 AI 프로젝트로 동상을 수상했습니다.',tasks:['팀 프로젝트 수행 및 결과물 발표'],icon:'trophy'},
- {id:'false',title:'허위정보 대응 최우수상',type:'award',tag:'수상',summary:'FACT-K 허위정보 대응 프로젝트',date:'2024.12',affiliation:'허위정보 대응 대회',tags:['AI','기획'],description:'FACT-K 프로젝트로 최우수상을 수상했습니다.',tasks:['팀 프로젝트 기획과 결과물 제출'],icon:'trophy'},
- {id:'social',title:'사회공헌 서포터즈',type:'activity',tag:'활동',summary:'동덕여자대학교 사회공헌 활동',date:'2026',affiliation:'대외활동',tags:['사회공헌'],description:'사회공헌 관련 서포터즈 활동에 참여하고 있습니다.',tasks:['사회공헌 활동 참여'],icon:'experience'}
+ "awards": [
+  {
+   "id": "edu-gold",
+   "title": "평생교육 홍보 콘텐츠 공모전 금상",
+   "type": "award",
+   "tag": "수상",
+   "summary": "Canva 생성형 AI를 활용한 홍보 영상 기획·제작",
+   "description": "Canva 생성형 AI를 활용한 홍보 영상 기획·제작",
+   "tasks": [
+    "평생교육 홍보 콘텐츠 공모전 금상"
+   ],
+   "tags": [
+    "수상"
+   ],
+   "date": "2026.05.11",
+   "affiliation": "동덕여자대학교",
+   "icon": "trophy"
+  },
+  {
+   "id": "vip",
+   "title": "창업 아이디어 경진대회 대상",
+   "type": "award",
+   "tag": "수상",
+   "summary": "V-IP 프로배구 선수 IP 기반 굿즈·서비스 아이디어",
+   "description": "V-IP 프로배구 선수 IP 기반 굿즈·서비스 아이디어",
+   "tasks": [
+    "창업 아이디어 경진대회 대상"
+   ],
+   "tags": [
+    "수상"
+   ],
+   "date": "2026.01.15",
+   "affiliation": "동덕여대 창업지원단",
+   "icon": "trophy"
+  },
+  {
+   "id": "human",
+   "title": "인권대회 공모전 최우수상",
+   "type": "award",
+   "tag": "수상",
+   "summary": "인권 관련 아이디어·결과물 발표",
+   "description": "인권 관련 아이디어·결과물 발표",
+   "tasks": [
+    "인권대회 공모전 최우수상"
+   ],
+   "tags": [
+    "수상"
+   ],
+   "date": "2025.12",
+   "affiliation": "동덕여자대학교",
+   "icon": "trophy"
+  },
+  {
+   "id": "capstone",
+   "title": "캡스톤디자인 경진대회 동상",
+   "type": "award",
+   "tag": "수상",
+   "summary": "GPT 기반 전공 맞춤형 코드 피드백 튜터",
+   "description": "GPT 기반 전공 맞춤형 코드 피드백 튜터",
+   "tasks": [
+    "캡스톤디자인 경진대회 동상"
+   ],
+   "tags": [
+    "수상"
+   ],
+   "date": "2025.07",
+   "affiliation": "동덕여대 교육혁신원",
+   "icon": "trophy"
+  },
+  {
+   "id": "false",
+   "title": "허위정보 대응 공모전 최우수상",
+   "type": "award",
+   "tag": "수상",
+   "summary": "FACT-K / Literacy-K · 2인 팀 기획 · 상금 200만원",
+   "description": "FACT-K / Literacy-K · 2인 팀 기획 · 상금 200만원",
+   "tasks": [
+    "허위정보 대응 공모전 최우수상"
+   ],
+   "tags": [
+    "수상"
+   ],
+   "date": "2024.12.19",
+   "affiliation": "KAIST",
+   "icon": "trophy"
+  },
+  {
+   "id": "ai-award",
+   "title": "생성형 AI 활용 공모전 대상",
+   "type": "award",
+   "tag": "수상",
+   "summary": "개인 참여 · Midjourney 대학 브랜드 비주얼 제작",
+   "description": "개인 참여 · Midjourney 대학 브랜드 비주얼 제작",
+   "tasks": [
+    "생성형 AI 활용 공모전 대상"
+   ],
+   "tags": [
+    "수상"
+   ],
+   "date": "2023.12",
+   "affiliation": "동덕여대 창업지원단 · 중원게임즈",
+   "icon": "trophy"
+  },
+  {
+   "id": "book-2023",
+   "title": "독서왕 선발대회 우수상",
+   "type": "award",
+   "tag": "수상",
+   "summary": "독서왕 선발대회",
+   "description": "독서왕 선발대회",
+   "tasks": [
+    "독서왕 선발대회 우수상"
+   ],
+   "tags": [
+    "수상"
+   ],
+   "date": "2023.10",
+   "affiliation": "동덕여대 춘강학술정보관",
+   "icon": "trophy"
+  },
+  {
+   "id": "design",
+   "title": "데이터사이언스데이 디자인 경진대회 3등",
+   "type": "award",
+   "tag": "수상",
+   "summary": "블록체인의 분산·연결·블록 구조를 로고·캐릭터로 시각화",
+   "description": "블록체인의 분산·연결·블록 구조를 로고·캐릭터로 시각화",
+   "tasks": [
+    "데이터사이언스데이 디자인 경진대회 3등"
+   ],
+   "tags": [
+    "수상"
+   ],
+   "date": "2022.10",
+   "affiliation": "동덕여자대학교",
+   "icon": "trophy"
+  },
+  {
+   "id": "book-2022",
+   "title": "독서왕 선발대회 장려상",
+   "type": "award",
+   "tag": "수상",
+   "summary": "독서왕 선발대회",
+   "description": "독서왕 선발대회",
+   "tasks": [
+    "독서왕 선발대회 장려상"
+   ],
+   "tags": [
+    "수상"
+   ],
+   "date": "2022.10",
+   "affiliation": "동덕여대 춘강학술정보관",
+   "icon": "trophy"
+  },
+  {
+   "id": "mentor-award",
+   "title": "서울런 우수멘토 선정",
+   "type": "activity",
+   "tag": "선정 / 활동",
+   "summary": "수준별 학습 지원과 멘토링",
+   "description": "서울런 학습 멘토 활동에서 우수멘토로 선정되었습니다.",
+   "tasks": [
+    "AI 진단 기반 수준별 지도",
+    "1:1 학습 지원"
+   ],
+   "tags": [
+    "멘토링"
+   ],
+   "date": "",
+   "affiliation": "서울런",
+   "icon": "trophy"
+  },
+  {
+   "id": "peer-award",
+   "title": "또래코칭 학습공동체 우수팀",
+   "type": "activity",
+   "tag": "선정 / 활동",
+   "summary": "학습·대학생활 적응 지원",
+   "description": "또래코칭 학습공동체 활동에서 우수팀으로 선정되었습니다.",
+   "tasks": [
+    "또래 학습 지원",
+    "활동 영상 공유"
+   ],
+   "tags": [
+    "또래코칭"
+   ],
+   "date": "2025.09 – 2025.12",
+   "affiliation": "동덕여자대학교",
+   "icon": "trophy"
+  }
  ],
- skills:[
- {id:'rag-skill',title:'RAG / LLM',type:'ai',tag:'AI / LLM',summary:'FastAPI · Ollama · ChromaDB · Docker',tags:['RAG','FastAPI','Ollama','ChromaDB','Docker'],description:'강의자료 인덱싱, 관련 문맥 추출, LLM 응답 테스트와 오류 유형 분리에 활용했습니다.',tasks:['질의 관련 문맥 검색','검색/생성 단계 오류 검증','한국어·일본어 답변 품질 확인'],icon:'robot'},
- {id:'python',title:'Python / pandas',type:'data',tag:'데이터 분석',summary:'설문 데이터 전처리 및 집계 자동화',tags:['Python','pandas','Colab'],description:'설문 CSV 컬럼 통합과 데이터 검증, 집계 자동화에 사용했습니다.',tasks:['데이터 정제 및 구조 통합','누락·중복 검증','자동 집계 결과 확인'],icon:'chart'},
- {id:'sql',title:'SQL / 데이터 분석',type:'data',tag:'데이터 분석',summary:'SQL 쿼리·회귀분석·시각화',tags:['SQL','R','통계'],description:'데이터베이스와 분석 관련 수업 및 프로젝트를 통해 활용한 기술입니다.',tasks:['SQL 서브쿼리·윈도우 함수 학습','회귀분석과 데이터시각화'],icon:'chart'},
- {id:'desktop',title:'C# / WPF',type:'dev',tag:'개발 / 인프라',summary:'Windows 응용프로그램 및 VDI 연계',tags:['C#','WPF','.NET','PowerShell'],description:'VDI 관련 애플리케이션 작업과 문제 분석에 활용했습니다.',tasks:['C#·WPF 개발 환경 작업','PowerShell 및 프로비저닝 흐름 점검'],icon:'monitor'},
- {id:'infrastructure',title:'VDI / 인프라',type:'dev',tag:'개발 / 인프라',summary:'Hyper-V · Active Directory · Docker',tags:['Hyper-V','Active Directory','Docker'],description:'가상 데스크톱 프로비저닝 및 AI 서비스 실행 환경을 다루었습니다.',tasks:['VDI 장애 분석','Docker 기반 개발 환경 구성'],icon:'laptop'}
+ "skills": [
+  {
+   "id": "languages",
+   "title": "분석 언어",
+   "type": "data",
+   "tag": "데이터 분석",
+   "summary": "Python · SQL · R",
+   "description": "설문 자동화·데이터 분석·통계 학습",
+   "tasks": [
+    "설문 자동화·데이터 분석·통계 학습"
+   ],
+   "tags": [
+    "Python",
+    "SQL",
+    "R"
+   ],
+   "date": "",
+   "affiliation": "",
+   "icon": "chart"
+  },
+  {
+   "id": "dev-lang",
+   "title": "개발 언어",
+   "type": "dev",
+   "tag": "개발 / 인프라",
+   "summary": "C · C# · Java",
+   "description": "개발 언어 학습과 Windows 응용프로그램 관련 작업",
+   "tasks": [
+    "개발 언어 학습과 Windows 응용프로그램 관련 작업"
+   ],
+   "tags": [
+    "C",
+    "C#",
+    "Java"
+   ],
+   "date": "",
+   "affiliation": "",
+   "icon": "monitor"
+  },
+  {
+   "id": "analysis",
+   "title": "데이터 분석",
+   "type": "data",
+   "tag": "데이터 분석",
+   "summary": "전처리·회귀·모델링·시각화",
+   "description": "설문 문항 표준화·집계 검증 및 지하철 혼잡도 모델 비교",
+   "tasks": [
+    "설문 문항 표준화·집계 검증 및 지하철 혼잡도 모델 비교"
+   ],
+   "tags": [
+    "pandas",
+    "XGBoost",
+    "Excel",
+    "회귀분석",
+    "데이터 전처리",
+    "데이터 시각화"
+   ],
+   "date": "",
+   "affiliation": "",
+   "icon": "chart"
+  },
+  {
+   "id": "database",
+   "title": "데이터베이스",
+   "type": "dev",
+   "tag": "개발 / 인프라",
+   "summary": "MySQL · MariaDB",
+   "description": "RDS MySQL 부하 실습 및 인프라·데이터베이스 학습",
+   "tasks": [
+    "RDS MySQL 부하 실습 및 인프라·데이터베이스 학습"
+   ],
+   "tags": [
+    "MySQL",
+    "MariaDB"
+   ],
+   "date": "",
+   "affiliation": "",
+   "icon": "monitor"
+  },
+  {
+   "id": "rag-skill",
+   "title": "AI / LLM",
+   "type": "ai",
+   "tag": "AI / LLM",
+   "summary": "RAG·Embedding·전사·프롬프트",
+   "description": "자료 인덱싱·문맥 추출·다국어 QA 및 강의 핵심 구간 추출",
+   "tasks": [
+    "자료 인덱싱·문맥 추출·다국어 QA 및 강의 핵심 구간 추출"
+   ],
+   "tags": [
+    "RAG",
+    "Embedding",
+    "PyTorch",
+    "Ollama",
+    "ChromaDB",
+    "WhisperX",
+    "GPT-4o-mini",
+    "프롬프트 설계"
+   ],
+   "date": "",
+   "affiliation": "",
+   "icon": "robot"
+  },
+  {
+   "id": "backend",
+   "title": "백엔드 / 실행 환경",
+   "type": "dev",
+   "tag": "개발 / 인프라",
+   "summary": "FastAPI · Docker",
+   "description": "AI 서비스 API 및 실행환경 구성",
+   "tasks": [
+    "AI 서비스 API 및 실행환경 구성"
+   ],
+   "tags": [
+    "FastAPI",
+    "Docker"
+   ],
+   "date": "",
+   "affiliation": "",
+   "icon": "monitor"
+  },
+  {
+   "id": "cloud",
+   "title": "AWS 클라우드",
+   "type": "dev",
+   "tag": "개발 / 인프라",
+   "summary": "구성·배포·관측 실습",
+   "description": "VPC·EC2·RDS 구성, Apache 페이지 배포와 CloudWatch 관측 실습",
+   "tasks": [
+    "VPC·EC2·RDS 구성, Apache 페이지 배포와 CloudWatch 관측 실습"
+   ],
+   "tags": [
+    "EC2",
+    "RDS",
+    "Lambda",
+    "API Gateway",
+    "CloudWatch",
+    "VPC"
+   ],
+   "date": "",
+   "affiliation": "",
+   "icon": "monitor"
+  },
+  {
+   "id": "qa",
+   "title": "인프라 / QA",
+   "type": "dev",
+   "tag": "개발 / 인프라",
+   "summary": "가상화·이중화·로그·부하 테스트",
+   "description": "VDI 구성 점검·장애 분석 및 DB 부하 관측 실습",
+   "tasks": [
+    "VDI 구성 점검·장애 분석 및 DB 부하 관측 실습"
+   ],
+   "tags": [
+    "Hyper-V",
+    "Failover Cluster",
+    "iSCSI",
+    "Active Directory",
+    "Windows Server",
+    "로그 분석",
+    "JMeter"
+   ],
+   "date": "",
+   "affiliation": "",
+   "icon": "monitor"
+  },
+  {
+   "id": "tools",
+   "title": "분석·교육·콘텐츠 도구",
+   "type": "tools",
+   "tag": "도구",
+   "summary": "Colab · App Inventor · Canva · Midjourney",
+   "description": "데이터 분석, 학생 앱 설계 지도, 브랜드·홍보 콘텐츠 제작",
+   "tasks": [
+    "데이터 분석, 학생 앱 설계 지도, 브랜드·홍보 콘텐츠 제작"
+   ],
+   "tags": [
+    "Google Colab",
+    "App Inventor",
+    "Canva",
+    "Midjourney"
+   ],
+   "date": "",
+   "affiliation": "",
+   "icon": "palette"
+  }
  ],
- education:[
- {id:'degree',title:'동덕여자대학교',type:'school',tag:'학업',summary:'데이터사이언스 전공 · 학사 과정',tags:['데이터사이언스','학사'],description:'데이터 분석, 인공지능, 데이터베이스의 기초와 응용을 공부했습니다.',tasks:['기계학습 · 딥러닝 · 데이터마이닝','회귀분석 · 데이터시각화 · 데이터베이스'],icon:'paper'},
- {id:'adsp',title:'ADsP',type:'cert',tag:'자격 / 어학',summary:'데이터분석 준전문가',date:'2025.03',tags:['데이터 분석','자격'],description:'ADsP 시험에 합격했습니다.',tasks:['데이터 분석 기초와 통계 지식 검증'],icon:'notes'},
- {id:'opic',title:'OPIc IM2',type:'cert',tag:'자격 / 어학',summary:'영어 말하기 시험',date:'2026.09',tags:['어학'],description:'OPIc IM2 등급을 취득했습니다.',tasks:['영어 의사소통 역량'],icon:'notes'}
+ "education": [
+  {
+   "id": "degree",
+   "title": "동덕여자대학교",
+   "type": "school",
+   "tag": "학업",
+   "summary": "데이터사이언스전공(심화) · 2027.02 졸업예정",
+   "description": "데이터사이언스전공 심화 과정에서 통계·데이터 처리·AI를 공부하고 있습니다. 학점 3.37, 130학점 이수(제공 원고 기준).",
+   "tasks": [
+    "통계·분석: 데이터마이닝의 이해와 실습, 회귀분석의 이해, 기초통계학, R 프로그래밍",
+    "데이터 처리·DB: 빅데이터처리, 데이터베이스개론, 데이터베이스 입문, 데이터 정보 리터러시",
+    "AI·시각화: 기계학습, 딥러닝, 데이터시각화의 이해와 실습, 데이터사이언스와 AI 윤리"
+   ],
+   "tags": [
+    "데이터사이언스",
+    "심화",
+    "학사 과정"
+   ],
+   "date": "2022.03 – 2027.02 졸업예정",
+   "affiliation": "동덕여자대학교",
+   "icon": "paper"
+  },
+  {
+   "id": "high-school",
+   "title": "중앙여자고등학교",
+   "type": "school",
+   "tag": "학업",
+   "summary": "2020.02 졸업",
+   "description": "중앙여자고등학교를 졸업했습니다.",
+   "tasks": [
+    "고등학교 졸업"
+   ],
+   "tags": [
+    "학력"
+   ],
+   "date": "2017.03 – 2020.02",
+   "affiliation": "",
+   "icon": "paper"
+  },
+  {
+   "id": "adsp",
+   "title": "데이터분석 준전문가 (ADsP)",
+   "type": "cert",
+   "tag": "자격 / 어학",
+   "summary": "데이터 분석 자격",
+   "description": "ADsP 자격을 취득했습니다.",
+   "tasks": [
+    "데이터 분석 기초·통계 지식"
+   ],
+   "tags": [
+    "ADsP"
+   ],
+   "date": "2025.03.14",
+   "affiliation": "",
+   "icon": "notes"
+  },
+  {
+   "id": "history",
+   "title": "한국사능력검정시험 2급",
+   "type": "cert",
+   "tag": "자격 / 어학",
+   "summary": "한국사 자격",
+   "description": "한국사능력검정시험 2급을 취득했습니다.",
+   "tasks": [
+    "한국사능력검정시험 2급"
+   ],
+   "tags": [
+    "한국사"
+   ],
+   "date": "",
+   "affiliation": "",
+   "icon": "notes"
+  },
+  {
+   "id": "opic",
+   "title": "OPIc IM2",
+   "type": "cert",
+   "tag": "자격 / 어학",
+   "summary": "영어 말하기",
+   "description": "OPIc IM2 등급을 취득했습니다.",
+   "tasks": [
+    "영어 의사소통 역량"
+   ],
+   "tags": [
+    "OPIc",
+    "IM2"
+   ],
+   "date": "2026.09.19",
+   "affiliation": "",
+   "icon": "notes"
+  },
+  {
+   "id": "conference",
+   "title": "2025 추계학술대회 발표",
+   "type": "research",
+   "tag": "학술 발표",
+   "summary": "고령자 혼잡도 기반 지하철 경로 추천",
+   "description": "혼잡도 예측과 경로 탐색을 결합한 학부 연구를 발표했습니다.",
+   "tasks": [
+    "학부 2인 팀 연구",
+    "예측 모델과 경로 탐색 결과 공유"
+   ],
+   "tags": [
+    "연구",
+    "발표"
+   ],
+   "date": "2025",
+   "affiliation": "",
+   "icon": "paper"
+  }
  ],
- contact:[
- {id:'github',title:'GitHub',type:'all',tag:'연락하기',summary:'프로젝트 및 소스코드 저장소',tags:['GitHub'],description:'프로젝트 저장소와 앞으로 추가할 결과물을 확인할 수 있습니다.',tasks:['github.com/yeninni/portfolioyelin'],icon:'laptop',url:'https://github.com/yeninni/portfolioyelin'}
+ "contact": [
+  {
+   "id": "email",
+   "title": "Email",
+   "type": "all",
+   "tag": "연락하기",
+   "summary": "shinrora@naver.com",
+   "description": "프로젝트와 협업 관련 연락은 이메일로 보내주세요.",
+   "tasks": [
+    "shinrora@naver.com"
+   ],
+   "tags": [
+    "Email"
+   ],
+   "date": "",
+   "affiliation": "",
+   "icon": "mail",
+   "url": "mailto:shinrora@naver.com"
+  },
+  {
+   "id": "github",
+   "title": "GitHub",
+   "type": "all",
+   "tag": "연락하기",
+   "summary": "포트폴리오 프로젝트 저장소",
+   "description": "포트폴리오 소스코드와 변경 내용을 확인할 수 있습니다.",
+   "tasks": [
+    "github.com/yeninni/portfolioyelin"
+   ],
+   "tags": [
+    "GitHub"
+   ],
+   "date": "",
+   "affiliation": "",
+   "icon": "laptop",
+   "url": "https://github.com/yeninni/portfolioyelin"
+  }
  ]
 };
 let current='projects',subtype='all',selected=null,page=0;
@@ -200,18 +1482,98 @@ function renderBody(){
  byId('cards').innerHTML=items.slice(page*3,page*3+3).map(item=>`<button class="entry ${item.id===selected?'active':''}" aria-pressed="${item.id===selected}" data-item="${item.id}" onclick="chooseItem('${item.id}');document.querySelector('[data-item=${item.id}]').focus({preventScroll:true})"><div class="cover">${item.image?`<img src="${ROOT+item.image}" alt="시안용 예시 이미지">`:`<div class="cover-graphic" data-tone="${item.type==='data'?'blue':item.type==='award'?'cream':'pink'}"><img src="${icon(item.icon||'folder')}" alt=""></div>`}<span class="type-label">${esc(item.tag)}</span></div><h3>${esc(item.title)}</h3><p>${esc(item.summary)}</p></button>`).join('');
  if(!cur)return;
  const cover=cur.detailImage||cur.image;
- byId('detail').innerHTML=`<div class="detail-visual"><div class="detail-image">${cover?`<img class="preview" src="${ROOT+cover}" alt="포트폴리오 디자인 시안 속 예시 이미지">`:`<img class="icon" src="${icon(cur.icon||'folder')}" alt="">`}</div>${cover?'<p class="mockup-note">시안용 예시 이미지 · 실제 프로젝트 화면 아님</p>':''}</div><article><div class="detail-top"><h2>${esc(cur.title)}</h2><div class="detail-meta">${esc(cur.date||'')}<br>${esc(cur.affiliation||'')}</div></div><div class="tags">${(cur.tags||[]).map(t=>`<span>${esc(t)}</span>`).join('')}</div><p class="summary">${esc(current==='projects'?cur.description.split('. ')[0]+(cur.description.includes('. ')?'.':''):cur.description)}</p><ul class="details-list">${(cur.tasks||[]).map(t=>`<li>${esc(t)}</li>`).join('')}</ul><div class="actions"><a href="${esc(cur.url||'https://github.com/yeninni/portfolioyelin')}" target="_blank" rel="noopener noreferrer"><img class="small-icon" src="${icon('github')}" alt="">${cur.url?'GitHub 방문':'코드 보기'}</a><button onclick="copyDetails()"><img class="small-icon" src="${icon('paper')}" alt="">설명 복사</button>${current==='projects'?`<button aria-expanded="false" aria-controls="project-evidence" onclick="toggleEvidence(this)"><img class="small-icon" src="${icon('paper')}" alt="">프로젝트 상세 보기</button>`:''}</div>${current==='projects'?`<div id="project-evidence" hidden>${projectDetails(cur)}</div>`:''}</article>`;
+ byId('detail').innerHTML=`<div class="detail-visual"><div class="detail-image">${cover?`<img class="preview" src="${ROOT+cover}" alt="포트폴리오 디자인 시안 속 예시 이미지">`:`<img class="icon" src="${icon(cur.icon||'folder')}" alt="">`}</div>${cover?'<p class="mockup-note">시안용 예시 이미지 · 실제 프로젝트 화면 아님</p>':''}</div><article><div class="detail-top"><h2>${esc(cur.title)}</h2><div class="detail-meta">${esc(cur.date||'')}<br>${esc(cur.affiliation||'')}</div></div><div class="tags">${(cur.tags||[]).map(t=>`<span>${esc(t)}</span>`).join('')}</div><p class="summary">${esc(cur.description)}</p><ul class="details-list">${(cur.tasks||[]).map(t=>`<li>${esc(t)}</li>`).join('')}</ul><div class="actions"><a href="${esc(cur.url||'https://github.com/yeninni/portfolioyelin')}" target="_blank" rel="noopener noreferrer"><img class="small-icon" src="${icon(cur.url?.startsWith('mailto:')?'mail':'github')}" alt="">${cur.url?.startsWith('mailto:')?'이메일 보내기':cur.url?'GitHub 방문':'코드 보기'}</a><button onclick="copyDetails()"><img class="small-icon" src="${icon('paper')}" alt="">설명 복사</button>${current==='projects'?`<button aria-expanded="false" aria-controls="project-evidence" onclick="toggleEvidence(this)"><img class="small-icon" src="${icon('paper')}" alt="">프로젝트 상세 보기</button>`:''}</div>${current==='projects'?`<div id="project-evidence" hidden>${projectDetails(cur)}</div>`:''}</article>`;
 }
 function toggleEvidence(button){const panel=byId('project-evidence');panel.hidden=!panel.hidden;button.setAttribute('aria-expanded',String(!panel.hidden))}
 async function copyDetails(){const item=listItems().find(i=>i.id===selected);if(!item)return;let txt=[item.title,item.description,...(item.tasks||[]).map(t=>'- '+t)].join('\n');try{await navigator.clipboard.writeText(txt);alert('프로젝트 설명을 복사했어요!')}catch{alert('이 환경에서는 복사가 지원되지 않아요.')}}
 
 const projectEvidence={
- rag:{role:'자료 인덱싱·문맥 추출 설계, 실행 환경 구성, 다국어 QA',process:'질문을 재현하고 검색 근거를 확인해 검색 오류와 답변 생성 오류를 분리했습니다.',result:'한국어·일본어 QA 검증 및 교육기관 시연에 참여했습니다.'},
- route:{role:'혼잡도 예측 모델 및 경로 탐색 기능 구성',process:'XGBoost 예측 결과를 Dijkstra·BFS 기반 경로 탐색과 결합했습니다.',result:'고령자의 이동 편의를 고려한 경로 추천 시나리오를 설계하고 연구 내용을 발표했습니다.'},
- vdi:{role:'프로비저닝 장애 지점 추적 및 동작 흐름 분석',process:'80%에서 중단되는 지점을 추적하고 관련 설정과 흐름을 분석·수정했습니다.',result:'프로비저닝 100% 정상 완료를 확인했습니다.'},
- ksa:{role:'설문 데이터 정리 및 집계 자동화',process:'상이한 문항명·컬럼을 통합하고 누락·중복 검증 로직을 구성했습니다.',result:'만족도와 강사평가 집계를 자동화했습니다.'}
+ "rag": {
+  "problem": "강의자료에서 질문과 관련된 근거를 찾아 한국어·일본어로 답하는 챗봇을 개발했습니다.",
+  "role": "Docker 실행환경 구성, 자료 인덱싱, 검색 문맥 추출, 다국어 QA 및 오류 분리",
+  "process": "강의 콘텐츠 임베딩·인덱싱 및 ChromaDB 저장 → 유사 문맥 검색과 LLM 응답 생성 → 한국어·일본어 질문으로 정확성과 문맥 유지 검증 → 오답을 검색 단계와 생성 단계로 분리 → 웹 검색 / 내 자료(RAG) 출처 선택 토글 구현",
+  "result": "인덱싱부터 답변 생성까지의 파이프라인, Docker 실행환경 및 출처 선택 기능을 구성했습니다. 할루시네이션 감소율은 정량 측정하지 않았습니다."
+ },
+ "route": {
+  "problem": "최소 정거장 수만으로는 혼잡 구간을 피하기 어려워 고령자의 이동 부담을 고려한 경로를 연구했습니다.",
+  "role": "데이터 전처리, XGBoost 혼잡도 예측 및 Dijkstra 경로 로직",
+  "process": "역·시간대·요일·호선별 혼잡도 전처리 → Linear Regression과 XGBoost 비교 → 예측 혼잡도와 환승 부담을 비용으로 반영한 Dijkstra 탐색 → 가중치 없는 BFS 결과와 비교",
+  "result": "2인 팀 예측 모델 R² 0.93 이상, 2025 추계학술대회 발표. R²는 예측 성능이며 이용자의 혼잡 감소를 측정한 값은 아닙니다."
+ },
+ "vdi": {
+  "problem": "Dstation V9 보안인증 QA 중 프로비저닝이 약 80%에서 멈추는 장애를 분석했습니다.",
+  "role": "2-Node 이중화 구성 QA 참여, 로그·설정값 대조, 수정 후 재검증 및 절차 문서화",
+  "process": "6대 서버의 AD·관리 서버·Hyper-V 호스트 점검 → iSCSI 공유 스토리지와 Failover Cluster 점검 → 로그·설정값 대조로 원인 범위 축소 → 설정 수정 후 반복 테스트 → 소유 노드 전환 시 대표 IP·공유 경로 유지 확인",
+  "result": "프로비저닝 정상 완료를 재검증하고 설정 기준·절차를 문서화했습니다."
+ },
+ "ksa": {
+  "problem": "과정마다 다른 Google Forms 문항과 응답을 같은 평가 기준에서 비교할 수 있도록 정리했습니다.",
+  "role": "CSV 비교, 문항 분류 기준 설계, Colab 집계 로직 작성·수정, Excel 대조 검증",
+  "process": "과정별 Google Forms CSV 추출 → 강사 이름·문항 맥락·응답 날짜로 문항 매핑 → Python·pandas 자동 집계 → 오류 발생 시 CSV를 세부 단위로 나눠 검증 → 기존 Excel 수기 결과와 대조 → 다른 교육 과정에 재사용",
+  "result": "서로 다른 설문을 같은 기준으로 집계·비교하는 재사용 가능한 처리 흐름을 만들고 담당자로부터 반복 업무가 편해졌다는 피드백을 받았습니다."
+ },
+ "lecture": {
+  "problem": "긴 강의 영상에서 중요한 내용을 다시 찾기 어려운 문제를 다뤘습니다.",
+  "role": "틸론 RAG 이후 후속 프로젝트 프로토타입 구현 참여",
+  "process": "WhisperX 음성 전사 → 청크 분할 → GPT-4o-mini 구간별 중요도 분석 → 핵심 타임스탬프·태그·요약 추출 → Markdown 리포트 생성",
+  "result": "핵심 구간 리스트와 보고서 생성 프로토타입을 구현했습니다."
+ },
+ "aws": {
+  "problem": "부하를 증가시키며 RDS MySQL 지표 변화를 관측하는 부트캠프 실습입니다.",
+  "role": "AWS 리소스 구성, JMeter JDBC 부하 조건 설정 및 CloudWatch 관측 실습",
+  "process": "VPC·서브넷·IGW·라우팅·보안그룹 구성 → EC2 Amazon Linux 2 Apache 페이지 배포 → RDS MySQL JDBC 연결(커넥션 10) → 10 Threads·Ramp-up 30초·Loop 2로 INSERT 확인 → 300 Threads·Ramp-up 100초·Loop 1로 부하 증가 → CPUUtilization·FreeableMemory·Latency·IOPS·DatabaseConnections 관측",
+  "result": "연결·INSERT와 부하 증가에 따른 지표를 관측했습니다. 300 Threads는 입력 조건이며 성능 성과가 아닙니다. CPU 최고치·P95 등 실측값은 제시하지 않습니다."
+ },
+ "tutor": {
+  "problem": "데이터시각화 수업의 문제·정답 조건을 바탕으로 학습자의 코드 피드백을 설계했습니다.",
+  "role": "캡스톤디자인 팀 프로젝트 참여",
+  "process": "코드 오류와 조건 누락 판별 → 수정 코드 안내 → 오류 이력 기반 반복 실수 추적 → 유사 문제 생성 설계",
+  "result": "캡스톤디자인 경진대회 동상(2025.07). 개인 담당 기능은 추가 확인이 필요합니다."
+ },
+ "fact": {
+  "problem": "허위정보 사례와 청소년·고령층의 취약성을 분석한 2인 팀 기획 프로젝트입니다.",
+  "role": "사례·정책·교육 비교와 대상 사용자 의견 조정에 참여",
+  "process": "허위정보 사례 및 국내외 정책·교육 비교 → 어린이 중심·고령층 우선 의견 조정 → 생애주기별 리터러시 접근 도출 → 퀴즈·딥페이크 탐지·취약 유형 리포트·연령별 UI/UX 기획",
+  "result": "KAIST 허위정보 대응 공모전 최우수상(2024.12.19), 상금 200만원. 기획안 단계이며 실제 탐지 시스템 배포 성과는 아닙니다."
+ },
+ "wizcovery": {
+  "problem": "팀스토어 상품 검색과 재고·위치·대기시간 정보의 비가시성 문제를 다룹니다.",
+  "role": "서비스 기획, HTML 웹·앱 프로토타입 제작, 현실 제약 검토 및 계획 자료 구성",
+  "process": "굿즈 검색 → 재고 확인 → 진열 위치 안내 → 대기시간 확인 → 품절 시 대안 추천 → RFID 셀프 체크아웃 등 제약 검토 → KPI·POC·단계별 확장 계획 구성",
+  "result": "진행 중인 기획·HTML 프로토타입입니다. 실매장 배포 또는 효과 검증 결과는 아닙니다."
+ },
+ "vip": {
+  "problem": "프로배구 선수 IP를 팬 맞춤형 상품과 서비스로 연결하는 창업 아이디어입니다.",
+  "role": "팬 맞춤형 굿즈·서비스 아이디어와 수익 모델 기획",
+  "process": "김지한 선수 굿즈 기획·제작 → 임성진 선수·KB손해보험 스타즈 확장 구상 → 좌석 추천 서비스 및 수익 모델 설계",
+  "result": "창업 아이디어 경진대회 대상(2026.01.15). 사업 아이디어 단계입니다."
+ },
+ "creative": {
+  "problem": "대학 브랜드 이미지와 평생교육 홍보 콘텐츠를 생성형 AI로 기획·제작했습니다.",
+  "role": "Midjourney 브랜드 비주얼 제작 및 Canva 홍보 영상 기획·제작",
+  "process": "Midjourney 프롬프트·네거티브 프롬프트·가중치 반복 조정 → Canva 스토리라인·시각 요소 구성 → 장면별 메시지 일관성 검토",
+  "result": "생성형 AI 활용 공모전 대상(2023.12, 개인), 평생교육 홍보 영상 금상(2026.05.11)."
+ },
+ "sw-project": {
+  "problem": "학생이 데이터와 앱 결과를 직접 확인하며 기후·에너지 문제를 이해하도록 지원했습니다.",
+  "role": "중·고등학생 대상 Python·App Inventor·블록코딩 교육 지원",
+  "process": "지역별 전력 사용 데이터 Python 분석·지도 시각화 → 지역·주거 형태·사용량 기반 App Inventor 절전 앱 설계 지도 → 코블록스 센서·자전거 발전 장치 TV 연동 실습 → 쉬는 시간 개별 학습 지원",
+  "result": "학생이 Colab 출력과 앱 디자인을 직접 확인할 수 있도록 지도했습니다."
+ },
+ "paper": {
+  "problem": "고령자의 이동 부담을 고려한 예측·추천 연구 결과를 발표했습니다.",
+  "role": "학부 2인 팀 연구 및 발표 참여",
+  "process": "혼잡도 데이터 전처리 → 예측 모델 비교 → Dijkstra·BFS 경로 결과 비교 → 추계학술대회 발표",
+  "result": "2025 추계학술대회 발표. 학회명과 정확한 발표일은 확인 후 추가할 예정입니다."
+ },
+ "more": {
+  "problem": "데이터 분석과 개발 학습에서 진행한 실습 기록입니다.",
+  "role": "수업 과제 및 개인 학습 실습",
+  "process": "쌀 원산지 분류 SVM 실습 → Titanic pandas 분석·월별 평균 집계·국가별 salary 시각화 → AI 작곡·보컬 기술 분석 공동 문서 → 블록체인 구조 로고·캐릭터 시각화 → 교내 색조 화장품 브랜드 기획안 → Oracle 11g XE·Java/JSP/Servlet·Tomcat·JDBC 실기 연습",
+  "result": "데이터사이언스데이 디자인 경진대회 3등 및 교내 색조 화장품 브랜드 기획안 최종 선정. SVM 점수는 지표 확인 전 표기하지 않으며 공동 문서는 논문 게재로 표기하지 않습니다."
+ }
 };
-function projectDetails(item){const e=projectEvidence[item.id];return `<dl class="evidence"><div><dt>담당 역할</dt><dd>${esc(e?.role||item.tasks[0])}</dd></div><div><dt>문제 해결</dt><dd>${esc(e?.process||item.tasks.slice(1).join(' · ')||item.description)}</dd></div><div><dt>결과</dt><dd>${esc(e?.result||({lecture:'핵심 구간의 태그·요약·타임스탬프 출력',tutor:'캡스톤디자인 동상 수상',fact:'최우수상 수상',kt:'현재 기획 진행 중',paper:'학술대회 연구 발표'}[item.id])||'제공 자료에 별도 결과가 기재되지 않았습니다.')}</dd></div></dl>`}
+function projectDetails(item){const e=projectEvidence[item.id];return `<dl class="evidence"><div><dt>문제</dt><dd>${esc(e?.problem||item.description)}</dd></div><div><dt>담당 역할</dt><dd>${esc(e?.role||item.tasks[0])}</dd></div><div><dt>문제 해결</dt><dd>${esc(e?.process||item.tasks.slice(1).join(' · ')||item.description)}</dd></div><div><dt>결과</dt><dd>${esc(e?.result||({lecture:'핵심 구간의 태그·요약·타임스탬프 출력',tutor:'캡스톤디자인 동상 수상',fact:'최우수상 수상',kt:'현재 기획 진행 중',paper:'학술대회 연구 발표'}[item.id])||'제공 자료에 별도 결과가 기재되지 않았습니다.')}</dd></div></dl>`}
 byId('main-tabs').addEventListener('keydown',event=>{const keys=['ArrowLeft','ArrowRight','Home','End'];if(!keys.includes(event.key))return;event.preventDefault();let i=sections.findIndex(s=>s.id===current);i=event.key==='Home'?0:event.key==='End'?sections.length-1:(i+(event.key==='ArrowRight'?1:-1)+sections.length)%sections.length;selectSection(sections[i].id);byId('tab-'+current).focus()});
 
 render();
