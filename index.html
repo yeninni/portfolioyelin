@@ -102,6 +102,7 @@
     .tab[aria-selected="true"]{clip-path:none}
     @media(max-width:1060px){.hero img{height:auto;object-fit:contain}.cover>img{height:155px}}
     @media(max-width:420px){.cover>img{height:195px}}
+  .controls[hidden]{display:none}
   </style>
 </head>
 <body>
@@ -1471,7 +1472,9 @@ function render(){
 }
 function renderBody(){
  const section=sections.find(v=>v.id===current), items=listItems();
- const maxPage=Math.max(0,Math.ceil(items.length/3)-1);page=Math.min(page,maxPage);
+ const showAll=current==='awards';
+ const maxPage=showAll?0:Math.max(0,Math.ceil(items.length/3)-1);page=Math.min(page,maxPage);
+ byId('counter').closest('.controls').hidden=showAll;
  if(!items.some(i=>i.id===selected))selected=items[page*3]?.id||null;
  let cur=items.find(x=>x.id===selected)||items[0];
  byId('filters').innerHTML=section.filters.map(f=>`<button class="filter ${f[0]===subtype?'selected':''}" aria-pressed="${f[0]===subtype}" data-filter="${f[0]}" onclick="selectFilter('${f[0]}');document.querySelector('[data-filter=${f[0]}]').focus()"><img class="pixel-icon" src="${icon(f[2])}" alt=""><span>${esc(f[1])}</span></button>`).join('');
@@ -1479,7 +1482,7 @@ function renderBody(){
  byId('prev').disabled=page===0;byId('next').disabled=page===maxPage;
  if(!items.length){byId('cards').innerHTML='<p class="empty">이 분류에는 아직 등록된 기록이 없습니다.</p>';byId('detail').style.display='none';return}
  byId('detail').style.display='grid';
- byId('cards').innerHTML=items.slice(page*3,page*3+3).map(item=>`<button class="entry ${item.id===selected?'active':''}" aria-pressed="${item.id===selected}" data-item="${item.id}" onclick="chooseItem('${item.id}');document.querySelector('[data-item=${item.id}]').focus({preventScroll:true})"><div class="cover">${item.image?`<img src="${ROOT+item.image}" alt="시안용 예시 이미지">`:`<div class="cover-graphic" data-tone="${item.type==='data'?'blue':item.type==='award'?'cream':'pink'}"><img src="${icon(item.icon||'folder')}" alt=""></div>`}<span class="type-label">${esc(item.tag)}</span></div><h3>${esc(item.title)}</h3><p>${esc(item.summary)}</p></button>`).join('');
+ byId('cards').innerHTML=(showAll?items:items.slice(page*3,page*3+3)).map(item=>`<button class="entry ${item.id===selected?'active':''}" aria-pressed="${item.id===selected}" data-item="${item.id}" onclick="chooseItem('${item.id}');document.querySelector('[data-item=${item.id}]').focus({preventScroll:true})"><div class="cover">${item.image?`<img src="${ROOT+item.image}" alt="시안용 예시 이미지">`:`<div class="cover-graphic" data-tone="${item.type==='data'?'blue':item.type==='award'?'cream':'pink'}"><img src="${icon(item.icon||'folder')}" alt=""></div>`}<span class="type-label">${esc(item.tag)}</span></div><h3>${esc(item.title)}</h3><p>${esc(item.summary)}</p></button>`).join('');
  if(!cur)return;
  const cover=cur.detailImage||cur.image;
  byId('detail').innerHTML=`<div class="detail-visual"><div class="detail-image">${cover?`<img class="preview" src="${ROOT+cover}" alt="포트폴리오 디자인 시안 속 예시 이미지">`:`<img class="icon" src="${icon(cur.icon||'folder')}" alt="">`}</div>${cover?'<p class="mockup-note">시안용 예시 이미지 · 실제 프로젝트 화면 아님</p>':''}</div><article><div class="detail-top"><h2>${esc(cur.title)}</h2><div class="detail-meta">${esc(cur.date||'')}<br>${esc(cur.affiliation||'')}</div></div><div class="tags">${(cur.tags||[]).map(t=>`<span>${esc(t)}</span>`).join('')}</div><p class="summary">${esc(cur.description)}</p><ul class="details-list">${(cur.tasks||[]).map(t=>`<li>${esc(t)}</li>`).join('')}</ul><div class="actions"><a href="${esc(cur.url||'https://github.com/yeninni/portfolioyelin')}" target="_blank" rel="noopener noreferrer"><img class="small-icon" src="${icon(cur.url?.startsWith('mailto:')?'mail':'github')}" alt="">${cur.url?.startsWith('mailto:')?'이메일 보내기':cur.url?'GitHub 방문':'코드 보기'}</a><button onclick="copyDetails()"><img class="small-icon" src="${icon('paper')}" alt="">설명 복사</button>${current==='projects'?`<button aria-expanded="false" aria-controls="project-evidence" onclick="toggleEvidence(this)"><img class="small-icon" src="${icon('paper')}" alt="">프로젝트 상세 보기</button>`:''}</div>${current==='projects'?`<div id="project-evidence" hidden>${projectDetails(cur)}</div>`:''}</article>`;
